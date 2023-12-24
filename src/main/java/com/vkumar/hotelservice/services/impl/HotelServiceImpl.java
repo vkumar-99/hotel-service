@@ -45,6 +45,6 @@ public class HotelServiceImpl implements HotelService {
 
     private HotelInfo mapToResponse(HotelEntity entity) {
         return new HotelInfo(entity.getHotelId(), entity.getName(),
-                entity.getLocation(), entity.getAbout());
+                entity.getLocation(), entity.getAbout(), null);
     }
 }
