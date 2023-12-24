@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,7 +27,7 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public HotelInfo getHotelInfo(String hotelId) {
         HotelEntity entity = repository.findById(hotelId)
-                .orElseThrow(() -> new ResourceNotFoundException());
+                .orElseThrow(ResourceNotFoundException::new);
         return mapToResponse(entity);
     }
 
@@ -45,6 +46,6 @@ public class HotelServiceImpl implements HotelService {
 
     private HotelInfo mapToResponse(HotelEntity entity) {
         return new HotelInfo(entity.getHotelId(), entity.getName(),
-                entity.getLocation(), entity.getAbout(), null);
+                entity.getLocation(), entity.getAbout(), Collections.emptyList());
     }
 }
