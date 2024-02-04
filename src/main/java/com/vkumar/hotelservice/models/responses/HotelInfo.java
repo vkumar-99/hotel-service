@@ -17,5 +17,5 @@ public class HotelInfo {
     private String name;
     private String location;
     private String about;
-    private List<Rating> rating;
+    //private List<Rating> rating;
 }
